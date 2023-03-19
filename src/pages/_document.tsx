@@ -1,9 +1,13 @@
+import React from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
+
 
 export default function Document() {
   return (
     <Html lang='en'>
-      <Head />
+      <Head> 
+        <title>TFN Alumni Portal</title>
+      </Head>
       <body>
         <Main />
         <NextScript />
