@@ -3,9 +3,12 @@ export enum PageEndpoints {
   login = '/auth/login',
   resetPassword = '/auth/reset-password',
 
-  profile = '/profile',
+  page404 = '/404',
+
+  profile = '/profiles',
   forum = '/forum',
   directory = '/directory',
   jobs = '/jobs',
   events = '/events'
+
 }
