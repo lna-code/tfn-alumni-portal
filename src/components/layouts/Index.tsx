@@ -11,9 +11,9 @@ interface IndexProps {
 
 const Index = ({ children }: IndexProps) => {
   const router = useRouter();
-  const [isLoggedIn, setIsloggedIn] = useState(true);
-  const [appLoading, setAppLoading] = useState(true);
   const { pathname } = router;
+  const [appLoading, setAppLoading] = useState(true);
+  const [isLoggedIn, setIsloggedIn] = useState(true);
 
   useEffect(() => {
     console.log(setIsloggedIn);
@@ -30,7 +30,7 @@ const Index = ({ children }: IndexProps) => {
       case PageEndpoints.resetPassword:
         return <AuthLayout>{children}</AuthLayout>;
       default:
-        router.push(PageEndpoints.home);
+        router.push(PageEndpoints.login);
         return null;
     }
   } else {
