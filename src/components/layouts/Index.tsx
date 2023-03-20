@@ -20,7 +20,7 @@ const Index = ({ children }: IndexProps) => {
     setAppLoading(false);
   }, []);
 
-  if (appLoading) return <div>Loading..... </div>;
+  if (appLoading) return <div>Loading... </div>;
 
   if (!isLoggedIn) {
     switch (pathname) {
