@@ -10,5 +10,4 @@ export enum PageEndpoints {
   directory = '/directory',
   jobs = '/jobs',
   events = '/events'
-
 }

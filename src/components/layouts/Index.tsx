@@ -11,16 +11,16 @@ interface IndexProps {
 
 const Index = ({ children }: IndexProps) => {
   const router = useRouter();
-  const [isLoggedIn, setIsloggedIn] = useState(true);
-  const [appLoading, setAppLoading] = useState(true);
   const { pathname } = router;
+  const [appLoading, setAppLoading] = useState(true);
+  const [isLoggedIn, setIsloggedIn] = useState(true);
 
   useEffect(() => {
     console.log(setIsloggedIn);
     setAppLoading(false);
   }, []);
 
-  if (appLoading) return <div>Loading..... </div>;
+  if (appLoading) return <div>Loading... </div>;
 
   if (!isLoggedIn) {
     switch (pathname) {
@@ -30,12 +30,10 @@ const Index = ({ children }: IndexProps) => {
       case PageEndpoints.resetPassword:
         return <AuthLayout>{children}</AuthLayout>;
       default:
-        router.push(PageEndpoints.home);
+        router.push(PageEndpoints.login);
         return null;
     }
   } else {
-    console.log(pathname)
-    console.log(PageEndpoints.profile)
     switch (pathname) {
       case PageEndpoints.home:
         return <div>{children}</div>;
