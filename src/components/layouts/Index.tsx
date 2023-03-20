@@ -34,6 +34,8 @@ const Index = ({ children }: IndexProps) => {
         return null;
     }
   } else {
+    console.log(pathname)
+    console.log(PageEndpoints.profile)
     switch (pathname) {
       case PageEndpoints.home:
         return <div>{children}</div>;
