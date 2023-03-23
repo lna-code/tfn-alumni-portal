@@ -13,7 +13,7 @@ const Index = ({ children }: IndexProps) => {
   const router = useRouter();
   const { pathname } = router;
   const [appLoading, setAppLoading] = useState(true);
-  const [isLoggedIn, setIsloggedIn] = useState(false);
+  const [isLoggedIn, setIsloggedIn] = useState(true);
 
   useEffect(() => {
     console.log(setIsloggedIn);

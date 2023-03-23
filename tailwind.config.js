@@ -8,10 +8,6 @@ module.exports = {
     extend: {
       colors: {
         'tfn-green': '#006D3E',
-        'tfn-powder': '#F5F6FA',
-      },
-      backgroundImage: {
-        'tfn-group': "url('/tfn-group.png')"
       }
     },
   },
