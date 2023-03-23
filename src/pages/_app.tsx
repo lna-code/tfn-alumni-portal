@@ -7,9 +7,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div>
       <title>TFN Alumni Portal</title>
-    <Index>
-      <Component {...pageProps} />
-    </Index>
+      <Index>
+        <Component {...pageProps} />
+      </Index>
     </div>
   );
 }
