@@ -23,7 +23,7 @@ const AuthLayout = ({ children }: AuthLayoutProps): JSX.Element => {
           <p className='py-4 font-light md:text-base text-sm'>Be Inspired by Creatives Around the Globe...</p>
         </div>
       </div>
-    <div>
+    </div>
   );
 };
 
