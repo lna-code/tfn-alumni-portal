@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import React, { ReactNode } from 'react';
-import tfnLogo from '../../../assets/imgs/tfn-logo.png';
+import Image from 'next/image';
+import tfnLogo from '../../../assets/imgs/logo.png';
 
 interface AuthLayoutProps {
   children: ReactNode;
