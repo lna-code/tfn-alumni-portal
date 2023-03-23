@@ -19,7 +19,7 @@ const AuthLayout = ({ children }: AuthLayoutProps): JSX.Element => {
           <h1 className='md:text-5xl text-4xl font-bold leading-snug'>
             Welcome to <br /> the <br /> Community
           </h1>
-          <p className='py-4 font-light md:text-base text-sm'>Be Inspired by Creatives Around the Globe...</p>
+          <p className='py-4 font-light md:text-base text-sm'>Be Inspired by Creatives Around the Globe.</p>
         </div>
       </div>
     </div>
