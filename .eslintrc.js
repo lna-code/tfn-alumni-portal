@@ -19,8 +19,11 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'prettier',
     'plugin:prettier/recommended',
+    'next'
   ],
   rules: {
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
     '@typescript-eslint/no-unused-vars': [ 'error'],
     '@typescript-eslint/no-explicit-any': [ 'error' ],
     '@typescript-eslint/no-var-requires': ['error'],
