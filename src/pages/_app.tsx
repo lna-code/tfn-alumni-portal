@@ -5,8 +5,11 @@ import Index from '@/components/layouts/Index';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
+    <div>
+      <title>TFN Alumni Portal</title>
     <Index>
       <Component {...pageProps} />
     </Index>
+    </div>
   );
 }
