@@ -1,25 +1,31 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { Button as AntButton } from 'antd';
 
 type ButtonProps = {
-  children: ReactNode;
+  children: string;
   variant?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
   onClick?: () => void;
+  [others: string]: unknown;
+  className?: string;
 };
 
-const Button = ({ children, variant = 'primary', size = 'medium', onClick }: ButtonProps) => {
-  const buttonClasses = classNames('rounded-', {
-    'bg-tfn-green hover:bg-white text-white hover:text-tfn-green hover:border-tfn-green focus:border-tfn-green': variant === 'primary',
-    'bg-white hover:bg-tfn-green text-tfn-green hover:text-white border-tfn-green': variant === 'secondary',
-    'text-xs font-bold  px-2 py-1': size === 'small',
-    'text-sm font-bold px-4 py-2': size === 'medium',
-    'text-lg font-bold px-6 py-3': size === 'large'
-  });
+const Button = ({ children, variant = 'primary', size = 'medium', onClick, className, ...rest }: ButtonProps) => {
+  const buttonClasses = classNames(
+    'rounded',
+    {
+      'bg-tfn-green hover:bg-white text-white hover:text-tfn-green hover:border-tfn-green focus:border-tfn-green': variant === 'primary',
+      'bg-white hover:bg-tfn-green text-tfn-green hover:text-white border-tfn-green': variant === 'secondary',
+      'text-xs font-bold  px-2 py-1': size === 'small',
+      'text-sm font-bold px-4 py-2': size === 'medium',
+      'text-lg font-bold px-6 py-3': size === 'large'
+    },
+    className
+  );
 
   return (
-    <AntButton className={buttonClasses} onClick={onClick}>
+    <AntButton className={buttonClasses} onClick={onClick} {...rest}>
       {children}
     </AntButton>
   );
