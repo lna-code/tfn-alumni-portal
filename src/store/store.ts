@@ -7,11 +7,10 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const persitAuth = { key: 'auth', storage };
-const configAuth = { key: 'config', whitelist: ['appLoading'], storage };
 
 const allReducers = combineReducers({
   auth: persistReducer(persitAuth, authReducer),
-  config: persistReducer(configAuth, configReducer)
+  config: configReducer
 });
 
 export const store = configureStore({
