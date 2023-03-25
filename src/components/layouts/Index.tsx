@@ -6,7 +6,6 @@ import Dashboard from './Dashboard/Dashboard';
 import { useAppDispatch, useAppSelector } from '@/store/store';
 import { selectConfigState, setAppLoading } from '@/store/config/configSlice';
 import { selectAuthState } from '@/store/auth/authSlice';
-import Page404 from '@/pages/404';
 
 interface IndexProps {
   children: ReactNode;
@@ -24,6 +23,7 @@ const Index = ({ children }: IndexProps) => {
     dispatch(setAppLoading(false));
   }, []);
 
+
   if (appLoading) return <div>Loading... </div>;
 
   if (!token) {
@@ -37,10 +37,8 @@ const Index = ({ children }: IndexProps) => {
     }
   } else {
     switch (pathname) {
-      case PageEndpoints.home:
-        return <Dashboard>{children}</Dashboard>;
       default:
-        return <Page404 />;
+        return <Dashboard>{children}</Dashboard>;
     }
   }
 };
