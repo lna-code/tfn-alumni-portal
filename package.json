@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^13.2.4",
+    "@reduxjs/toolkit": "^1.9.3",
     "@types/classnames": "^2.3.1",
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
@@ -25,6 +26,8 @@
     "prettier": "^2.8.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-redux": "^8.0.5",
+    "redux-persist": "^6.0.0",
     "typescript": "5.0.2"
   },
   "devDependencies": {
