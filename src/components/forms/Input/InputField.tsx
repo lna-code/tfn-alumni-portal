@@ -4,7 +4,7 @@ import { Input } from 'antd';
 interface InputFieldProps {
   placeholder: string;
   className?: string;
-  [others: string]: any;
+  [others: string]: unknown;
 }
 
 const InputField = ({ placeholder, className, ...others }: InputFieldProps) => {

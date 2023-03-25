@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { PageEndpoints } from '@/utils/constants/endpoints.constant';
 import AuthLayout from './AuthLayout/AuthLayout';
 import Dashboard from './Dashboard/Dashboard';
-import Page404 from '@/pages/404';
+import { useAppDispatch, useAppSelector } from '@/store/store';
+import { selectConfigState, setAppLoading } from '@/store/config/configSlice';
+import { selectAuthState } from '@/store/auth/authSlice';
 
 interface IndexProps {
   children: ReactNode;
@@ -12,20 +14,19 @@ interface IndexProps {
 const Index = ({ children }: IndexProps) => {
   const router = useRouter();
   const { pathname } = router;
-  const [appLoading, setAppLoading] = useState(true);
-  const [isLoggedIn, setIsloggedIn] = useState(false);
+  const { appLoading } = useAppSelector(selectConfigState);
+  const { token } = useAppSelector(selectAuthState);
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log(setIsloggedIn);
-    setAppLoading(false);
+    dispatch(setAppLoading(false));
   }, []);
 
   if (appLoading) return <div>Loading... </div>;
 
-  if (!isLoggedIn) {
+  if (!token) {
     switch (pathname) {
-      case PageEndpoints.home:
-        return <div>{children}</div>;
       case PageEndpoints.login:
       case PageEndpoints.resetPassword:
         return <AuthLayout>{children}</AuthLayout>;
@@ -40,7 +41,8 @@ const Index = ({ children }: IndexProps) => {
       case PageEndpoints.profile:
         return <Dashboard>{children}</Dashboard>;
       default:
-        return <Page404 />;
+        router.push(PageEndpoints.profile);
+        return null;
     }
   }
 };
