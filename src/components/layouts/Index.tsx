@@ -23,7 +23,6 @@ const Index = ({ children }: IndexProps) => {
     dispatch(setAppLoading(false));
   }, []);
 
-
   if (appLoading) return <div>Loading... </div>;
 
   if (!token) {
