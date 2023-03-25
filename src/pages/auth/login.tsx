@@ -11,7 +11,7 @@ const Login = () => {
 
   const loginUserHandler = () => {
     dispatch(loginUser({ email: 'test.test@yahoo.com', password: '123456' }));
-    router.push(PageEndpoints.profile);
+    router.push(PageEndpoints.home);
   };
 
   return (
