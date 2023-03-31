@@ -1,7 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable prettier/prettier */
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
@@ -16,7 +12,7 @@ type NavButtonProps = {
   children: string;
   active?: boolean;
   to: string;
-  icon?: any;
+  icon?: unknown;
 };
 
 const NavButton = ({ children, active = false, to, icon }: NavButtonProps) => {
