@@ -43,7 +43,6 @@ type SidebarProps = {
 
 const Sidebar = ({ items, activePath }: SidebarProps) => {
   const dispatch = useAppDispatch();
-  // const { user } = useAppSelector(selectAuthState);
 
   const logOutUserHandler = () => {
     dispatch(logoutUser());
@@ -68,8 +67,10 @@ const Sidebar = ({ items, activePath }: SidebarProps) => {
       </div>
       <div className='mt-52'>
         <Button className='border-none pl-4' onClick={logOutUserHandler}>
-          <FontAwesomeIcon icon={faPowerOff} className='mr-2' />
-          Sign Out
+          <div>
+            <FontAwesomeIcon icon={faPowerOff} className='mr-2' />
+            Sign Out
+          </div>
         </Button>
       </div>
     </nav>
