@@ -12,6 +12,8 @@ module.exports = {
         'tfn-green': '#006D3E',
         'tfn-powder': '#F5F6FA'
       },
+      screens: { 'sm': { 'max': '640px' } 
+      },
       backgroundImage: {
         'tfn-group': "url('/group.png')"
       }
