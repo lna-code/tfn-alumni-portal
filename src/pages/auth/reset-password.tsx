@@ -31,10 +31,10 @@ const ResetPassword = () => {
             </Link>
           </p>
           <p className='mt-5'>
-            <a href='/'>
+            <Link href='/'>
               <FontAwesomeIcon icon={faArrowLeft} className='mr-6 font-thin' />
               <b>Back to sign in</b>
-            </a>
+            </Link>
           </p>
         </div>
       </div>
