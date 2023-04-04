@@ -7,10 +7,11 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const persitAuth = { key: 'auth', storage };
+const persistConfig = { key: 'config', whitelist: ['leftBar'], storage };
 
 const allReducers = combineReducers({
   auth: persistReducer(persitAuth, authReducer),
-  config: configReducer
+  config: persistReducer(persistConfig, configReducer)
 });
 
 export const store = configureStore({

@@ -10,7 +10,8 @@ module.exports = {
     extend: {
       colors: {
         'tfn-green': '#006D3E',
-        'tfn-powder': '#F5F6FA'
+        'tfn-powder': '#F5F6FA',
+        'tfn-light-green': '#6ad76c',
       },
       screens: { 'sm': { 'max': '640px' } 
       },

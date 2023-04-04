@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import { Button as AntButton } from 'antd';
 
 type ButtonProps = {
-  children: string;
+  children: ReactNode;
   variant?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
   onClick?: () => void;
-  [others: string]: unknown;
   className?: string;
+  [others: string]: unknown;
 };
 
 const Button = ({ children, variant = 'primary', size = 'medium', onClick, className, ...rest }: ButtonProps) => {
   const buttonClasses = classNames(
     'rounded',
+    'hover:shadow-2xl hover:scale-105',
+    'active:scale-95 transition-all duration-150',
     {
       'bg-tfn-green hover:bg-white text-white hover:text-tfn-green hover:border-tfn-green focus:border-tfn-green': variant === 'primary',
       'bg-white hover:bg-tfn-green text-tfn-green hover:text-white border-tfn-green': variant === 'secondary',
