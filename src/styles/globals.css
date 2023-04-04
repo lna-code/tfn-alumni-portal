@@ -24,8 +24,10 @@ body {
     @apply !px-0 !mx-0;
   }
 
-  .ant-drawer,
-  .ant-drawer-open,
+  .ant-drawer-open {
+    @apply !rounded-r-none;
+  }
+
   .ant-drawer-content-wrapper {
     @apply !rounded-r-[35px] !overflow-x-hidden lg:hidden flex !text-tfn-green;
   }
