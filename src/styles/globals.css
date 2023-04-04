@@ -24,9 +24,8 @@ body {
     @apply !px-0 !mx-0;
   }
 
-
   .ant-drawer-open {
-    @apply !rounded-r-none
+    @apply !rounded-r-none;
   }
 
   .ant-drawer-content-wrapper {
