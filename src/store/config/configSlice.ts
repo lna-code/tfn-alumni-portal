@@ -4,7 +4,9 @@ import type { RootState } from '../store';
 import { configStateType } from './configTypes';
 
 const configDefaultState: configStateType = {
-  appLoading: true
+  appLoading: false,
+  mobiNav: false,
+  leftBar: false
 };
 
 export const configSlice = createSlice({
@@ -13,11 +15,17 @@ export const configSlice = createSlice({
   reducers: {
     setAppLoading: (state, action: PayloadAction<boolean>) => {
       state.appLoading = action.payload;
+    },
+    setMobiNav: (state, action: PayloadAction<boolean>) => {
+      state.mobiNav = action.payload;
+    },
+    setLeftBar: (state, action: PayloadAction<boolean>) => {
+      state.leftBar = action.payload;
     }
   }
 });
 
-export const { setAppLoading } = configSlice.actions;
+export const { setAppLoading, setMobiNav, setLeftBar } = configSlice.actions;
 
 export const selectConfigState = (state: RootState) => state.config;
 

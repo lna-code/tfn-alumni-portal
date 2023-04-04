@@ -14,3 +14,28 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
+
+@layer {
+  .ant-collapse-header {
+    @apply !p-0 !my-0;
+  }
+
+  .ant-collapse-content-box {
+    @apply !px-0 !mx-0;
+  }
+
+  .ant-drawer,
+  .ant-drawer-open,
+  .ant-drawer-content-wrapper {
+    @apply !rounded-r-[35px] !overflow-x-hidden lg:hidden flex !text-tfn-green;
+  }
+
+  .ant-drawer-body,
+  .ant-collapse {
+    @apply !p-0 !m-0 !bg-tfn-green !flex justify-center;
+  }
+}
+
+.btn-hover {
+  @apply hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-150;
+}

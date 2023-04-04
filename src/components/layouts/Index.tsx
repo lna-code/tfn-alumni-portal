@@ -35,10 +35,10 @@ const Index = ({ children }: IndexProps) => {
         return null;
     }
   } else {
-    switch (pathname) {
-      default:
-        return <Dashboard>{children}</Dashboard>;
-    }
+    return <Dashboard>{children}</Dashboard>;
+    // switch (pathname) {
+    //   default:
+    // }
   }
 };
 
