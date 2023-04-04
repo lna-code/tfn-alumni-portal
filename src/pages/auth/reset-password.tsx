@@ -26,15 +26,15 @@ const ResetPassword = () => {
         <div className='text-[#989797] '>
           <p className='sm:hidden'>
             Didn't recieve the mail?{' '}
-            <a href='/' className='font-bold'>
+            <Link href='/' className='font-bold'>
               Click here to proceed
-            </a>
+            </Link>
           </p>
           <p className='mt-5'>
-            <a href='/'>
+            <Link href='/'>
               <FontAwesomeIcon icon={faArrowLeft} className='mr-6 font-thin' />
               <b>Back to sign in</b>
-            </a>
+            </Link>
           </p>
         </div>
       </div>

@@ -12,8 +12,6 @@ import { selectConfigState, setLeftBar, setMobiNav } from '@/store/config/config
 interface SideBarProps {
   isMobi?: boolean;
 }
-
-
 const Sidebar = ({ isMobi }: SideBarProps) => {
   const dispatch = useAppDispatch();
   const { leftBar } = useAppSelector(selectConfigState);
