@@ -29,7 +29,7 @@ const NavButton = ({ children, active = false, icon, isMobi = false, ...rest }: 
       <div
         className={`flex space-x-5 py-3 px-2.5 font-semibold shadow-lg select-none justify-start items-center rounded-lg capitalize bg-white text-tfn-green hover:shadow-2xl hover:scale-105 active:text-tfn-green active:bg-white active:scale-95' ${
           collapse ? '!w-[230px]' : 'w-full'
-        } ${active ? 'text-white bg-[#47ba49]' : ''}`}
+        } ${active ? 'text-white bg-green-500' : ''}`}
         {...rest}>
         <FontAwesomeIcon icon={icon} className='' />
         {collapse && <p>{children}</p>}
