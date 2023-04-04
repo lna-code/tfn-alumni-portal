@@ -22,7 +22,7 @@ const NavButton = ({ children, active = false, icon, isMobi = false, ...rest }: 
     'hover:shadow-2xl hover:scale-105',
     'active:text-tfn-green active:bg-white active:scale-95',
     {
-      '': active,
+      '': active
     }
   );
 
