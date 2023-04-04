@@ -11,7 +11,7 @@ module.exports = {
       colors: {
         'tfn-green': '#006D3E',
         'tfn-powder': '#F5F6FA',
-        'tfn-light-green': '#6ad76c',
+        'tfn-light-green': '#6AD76C',
       },
       screens: { 'sm': { 'max': '640px' } 
       },

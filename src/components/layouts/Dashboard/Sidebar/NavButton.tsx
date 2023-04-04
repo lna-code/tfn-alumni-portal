@@ -22,14 +22,13 @@ const NavButton = ({ children, active = false, icon, isMobi = false, ...rest }: 
     'hover:shadow-2xl hover:scale-105',
     'active:text-tfn-green active:bg-white active:scale-95',
     {
-      'text-white !bg-tfn-light-green font-bold': active,
-      '!w-[14rem]': collapse
+      '': active
     }
   );
 
   return (
     <Tooltip open={leftBar ? false : undefined} showArrow={false} trigger={leftBar ? 'hover' : undefined} title={children} placement='right' color='#017B47'>
-      <div className={allClasses} {...rest}>
+      <div className={`${allClasses} ${collapse ? '!w-[14rem]' : ''} ${active ? 'text-white bg-tfn-light-green' : ''}`} {...rest}>
         <FontAwesomeIcon icon={icon} className='' />
         {collapse && <p>{children}</p>}
       </div>
