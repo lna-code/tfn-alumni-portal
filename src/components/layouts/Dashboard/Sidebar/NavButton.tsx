@@ -15,26 +15,30 @@ type NavButtonProps = {
 
 const NavButton = ({ children, active = false, icon, isMobi = false, ...rest }: NavButtonProps) => {
   const { leftBar } = useAppSelector(selectConfigState);
-
   const collapse = isMobi ? true : leftBar;
-  const open = isMobi ? false : leftBar ? false : undefined;
-  // const allClasses = classNames(
-  //   'flex space-x-5 py-3 px-2.5 font-semibold shadow-lg select-none justify-start items-center  rounded-lg capitalize bg-white text-tfn-green',
-  //   'hover:shadow-2xl hover:scale-105',
-  //   'active:text-tfn-green active:bg-white active:scale-95'
-  // );
+  const open = leftBar ? false : undefined;
+
+  const CustomBtn = () => (
+    <div
+      style={{backgroundColor: 'blue'}}
+      className={`flex space-x-5 py-3 px-2.5 font-semibold shadow-lg select-none justify-start items-center rounded-lg capitalize bg-white text-tfn-green btn-hover  ' ${collapse ? '!w-[230px]' : 'w-full'
+        } ${active ? ' !text-white !bg-green-500 ' : ''}`}
+      {...rest}>
+      <FontAwesomeIcon icon={icon} className='' />
+      {collapse && <p>{children}</p>}
+    </div>
+  )
 
   return (
-    <Tooltip open={open} showArrow={false} trigger={leftBar ? 'hover' : undefined} title={children} placement='right' color='#017B47'>
-      <div
-        className={`flex space-x-5 py-3 px-2.5 font-semibold shadow-lg select-none justify-start items-center rounded-lg capitalize bg-white text-tfn-green hover:shadow-2xl hover:scale-105 active:text-tfn-green active:bg-white active:scale-95' ${
-          collapse ? '!w-[230px]' : 'w-full'
-        } ${active ? 'text-white bg-green-500' : ''}`}
-        {...rest}>
-        <FontAwesomeIcon icon={icon} className='' />
-        {collapse && <p>{children}</p>}
-      </div>
-    </Tooltip>
+    <div>
+      {isMobi ? <CustomBtn /> : 
+        <Tooltip open={open} showArrow={false} trigger={leftBar ? 'hover' : undefined} title={children} placement='right' color='#017B47'>
+          <div>
+            <CustomBtn />
+          </div>
+        </Tooltip>
+      }
+    </div>
   );
 };
 
