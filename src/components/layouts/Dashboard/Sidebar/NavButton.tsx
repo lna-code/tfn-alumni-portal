@@ -20,24 +20,26 @@ const NavButton = ({ children, active = false, icon, isMobi = false, ...rest }: 
 
   const CustomBtn = () => (
     <div
-      style={{backgroundColor: 'blue'}}
-      className={`flex space-x-5 py-3 px-2.5 font-semibold shadow-lg select-none justify-start items-center rounded-lg capitalize bg-white text-tfn-green btn-hover  ' ${collapse ? '!w-[230px]' : 'w-full'
-        } ${active ? ' !text-white !bg-green-500 ' : ''}`}
+      className={`flex space-x-5 py-3 px-2.5 font-semibold shadow-lg select-none justify-start items-center rounded-lg capitalize bg-white text-tfn-green btn-hover  ' ${collapse ? '!w-[230px]' : 'w-full'} ${
+        active ? ' !text-white !bg-green-500 ' : ''
+      }`}
       {...rest}>
       <FontAwesomeIcon icon={icon} className='' />
       {collapse && <p>{children}</p>}
     </div>
-  )
+  );
 
   return (
     <div>
-      {isMobi ? <CustomBtn /> : 
+      {isMobi ? (
+        <CustomBtn />
+      ) : (
         <Tooltip open={open} showArrow={false} trigger={leftBar ? 'hover' : undefined} title={children} placement='right' color='#017B47'>
           <div>
             <CustomBtn />
           </div>
         </Tooltip>
-      }
+      )}
     </div>
   );
 };
