@@ -21,7 +21,9 @@ const NavButton = ({ children, active = false, icon, isMobi = false, ...rest }: 
   const CustomBtn = () => (
     <div
       className={`flex space-x-5 py-3 px-2.5 font-semibold shadow-lg select-none justify-start items-center rounded-lg capitalize bg-white text-tfn-green btn-hover  ' ${collapse ? '!w-[230px]' : 'w-full'} ${
-        active ? ' !text-white !bg-green-500 ' : '' }`} {...rest}>
+        active ? ' !text-white !bg-green-500 ' : ''
+      }`}
+      {...rest}>
       <FontAwesomeIcon icon={icon} className='' />
       {collapse && <p>{children}</p>}
     </div>
