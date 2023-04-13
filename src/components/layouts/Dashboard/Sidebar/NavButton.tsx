@@ -15,9 +15,6 @@ type NavButtonProps = {
 const NavButton = ({ children, active = false, icon, isMobi = false, ...rest }: NavButtonProps) => {
   const { leftBar } = useAppSelector(selectConfigState);
   const collapse = isMobi ? true : leftBar;
-
-  console.log(children, active);
-
   return (
     <Collapse ghost>
       <div
