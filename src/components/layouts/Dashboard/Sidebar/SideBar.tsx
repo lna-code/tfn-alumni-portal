@@ -25,7 +25,7 @@ const Sidebar = ({ isMobi }: SideBarProps) => {
   return (
     <nav className='relative bg-tfn-green h-screen  text-white px-2 py-16 flex justify-between flex-col'>
       <span className='absolute -right-2 top-16 rounded-full lg:block hidden'>
-        <FontAwesomeIcon onClick={() => dispatch(setLeftBar(!leftBar))} className={`btn-hover text-white text-[1.6rem] ${leftBar ? 'rotate-180' : ''}`} icon={faCircleArrowRight} />
+        <FontAwesomeIcon onClick={() => dispatch(setLeftBar(!leftBar))} className={`btn-hover text-white hover:text-tfn-light-green hover:bg-white rounded-full text-[1.6rem] ${leftBar ? 'rotate-180' : ''}`} icon={faCircleArrowRight} />
       </span>
       <div className='lg:mt-6 mt-2 space-y-6 px-3 py-6 flex justify-between flex-col rounded-lg shadow-2xl bg-[#017B47]'>
         {homeRoutes.map((route) => (
