@@ -15,7 +15,7 @@ const SetPassword = () => {
   const [strengthText, setStrengthText] = useState('');
   const [strengthColor, setStrengthColor] = useState('');
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e: any) => {
     const { value } = e.target;
     setPassword(value);
 
