@@ -31,9 +31,11 @@
     "react-dom": "18.2.0",
     "react-redux": "^8.0.5",
     "redux-persist": "^6.0.0",
-    "typescript": "5.0.2"
+    "typescript": "5.0.2",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
+    "@types/zxcvbn": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "autoprefixer": "^10.4.14",
     "eslint-config-prettier": "^8.7.0",
