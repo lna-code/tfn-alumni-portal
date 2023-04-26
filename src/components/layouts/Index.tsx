@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useRouter } from 'next/router';
 import React, { ReactNode, useEffect } from 'react';
 import { PageEndpoints } from '@/utils/constants/endpoints.constant';
@@ -28,7 +29,9 @@ const Index = ({ children }: IndexProps) => {
   if (!token) {
     switch (pathname) {
       case PageEndpoints.login:
+      case PageEndpoints.forgotPassword:
       case PageEndpoints.resetPassword:
+      case PageEndpoints.newPassword:
         return <AuthLayout>{children}</AuthLayout>;
       default:
         router.push(PageEndpoints.login);

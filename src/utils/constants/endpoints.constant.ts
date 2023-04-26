@@ -1,9 +1,12 @@
+/* eslint-disable prettier/prettier */
 import { faHome, faUsers, faSitemap, faBriefcase, faCalendar, IconDefinition, faUser } from '@fortawesome/free-solid-svg-icons';
 
 export enum PageEndpoints {
   home = '/',
   login = '/auth/login',
+  forgotPassword = '/auth/forgot-password',
   resetPassword = '/auth/reset-password',
+  newPassword = '/auth/new-password',
 
   page404 = '/404',
   forum = '/forum',

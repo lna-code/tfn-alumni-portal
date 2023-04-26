@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Upload, message, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import DropdownMenu from '../../components/dropdownMenu/dropdownMenu';
