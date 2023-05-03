@@ -14,7 +14,7 @@ const ResetPassword = () => {
           We sent an email to <b className='text-[#121212]'>tadealumni@gmail.com</b>
         </p>
         <form className='mt-10 mb-5'>
-          <input type='tel' className='h-[72px] w-[65px] rounded-lg align-center mr-5  shadow-2xl text-[40px] text-center font-bold' maxLength={1} />
+          <input type='tel' className='h-[72px] w-[65px] rounded-lg align-center mr-5  shadow-2xl text-[40px] text-center font-bold border-2 border-tfn-green focus:border-tfn-green active:border-tfn-green' maxLength={1} />
           <input type='tel' className='h-[72px] w-[65px] rounded-lg align-center mr-5 shadow-2xl text-[40px] text-center font-bold ' maxLength={1} />
           <input type='tel' className='h-[72px] w-[65px] rounded-lg align-center mr-5 shadow-2xl text-[40px] text-center font-bold ' maxLength={1} />
           <input type='tel' className='h-[72px] w-[65px] rounded-lg align-center shadow-2xl text-[40px] text-center font-bold' maxLength={1} />
