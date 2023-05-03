@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { logoutUser } from '@/store/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '@/store/store';
 import Link from 'next/link';
@@ -22,9 +22,21 @@ const Sidebar = ({ isMobi }: SideBarProps) => {
     dispatch(logoutUser());
   };
 
+  useEffect(() => {
+    const handleWindowSizeChange = () => {
+      dispatch(setMobiNav(false));
+      dispatch(setLeftBar(false));
+    };
+
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    };
+  }, [window.innerWidth]);
+
   return (
     <nav className='relative bg-tfn-green h-screen  text-white px-2 py-16 flex justify-between flex-col'>
-      <span className='absolute -right-2 top-16 rounded-full lg:block hidden'>
+      <span className='absolute -right-2 top-16 rounded-full xl:block hidden'>
         <FontAwesomeIcon onClick={() => dispatch(setLeftBar(!leftBar))} className={`btn-hover text-white hover:text-tfn-light-green hover:bg-white rounded-full text-[1.6rem] ${leftBar ? 'rotate-180' : ''}`} icon={faCircleArrowRight} />
       </span>
       <div className='lg:mt-6 mt-2 space-y-6 px-3 py-6 flex justify-between flex-col rounded-lg shadow-2xl bg-[#017B47]'>

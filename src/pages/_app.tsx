@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Provider store={store}>
         <title>TFN Alumni Portal</title>
         <Index>
-          <NextNProgress color="#6AD76C" />
+          <NextNProgress color='#6AD76C' />
           <Component {...pageProps} />
         </Index>
       </Provider>

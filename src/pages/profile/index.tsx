@@ -1,37 +1,49 @@
 import React, { useState } from 'react';
-import { Upload, message, Avatar } from 'antd';
+import { Upload, Avatar, Collapse } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import DropdownMenu from '../../components/dropdownMenu/dropdownMenu';
+import profilePin from '../../assets/imgs/profilePin.png';
+import PersonalInfoForm from '@/components/profiles/PersonalInfoForm';
+import Image from 'next/image';
+const { Panel } = Collapse;
 
 const ProfilePage: React.FC = () => {
   const [imageUrl, setImageUrl] = useState('');
 
-  const handleImageUpload = (info: any) => {
-    if (info.file.status === 'done') {
-      message.success('Image uploaded successfully!');
-      const reader = new FileReader();
-      reader.addEventListener('load', () => {
-        setImageUrl(reader.result as string);
-      });
-      reader.readAsDataURL(info.file.originFileObj);
-    } else if (info.file.status === 'error') {
-      message.error('Image upload failed.');
-    }
+  const handleImageUpload = () => {
+    setImageUrl('https://www.sbs.ox.ac.uk/sites/default/files/Leye.PNG');
   };
+
   return (
-    <div className='min-h-screen flex flex-col items-center justify-start'>
-      <Upload accept='image/*' showUploadList={false} onChange={handleImageUpload}>
-        {imageUrl ? <Avatar size={128} src={imageUrl} /> : <Avatar size={128} icon={<UserOutlined />} />}
-        <div className='mt-2 text-center'>
-          <span className='text-sm text-gray-600'>Upload Image</span>
+    <div className='flex flex-col items-start justify-center xl:px-16 lg:px-4 md:px-5 px-2 pb-36'>
+      <div className='md:py-12 py-8 flex md:flex-row md:space-x-6 flex-col space-x-0 md:space-y-0 space-y-6 items-center w-full'>
+        <Upload className='relative' accept='image/*' showUploadList={false} onChange={handleImageUpload}>
+          <Avatar className='border-2 border-[#698C30]' icon={<UserOutlined />} size={168} src={imageUrl} />
+          <span className='absolute right-0 bottom-0'>
+            <Image width={30} height={30} src={profilePin.src} alt='Profin pin' />
+          </span>
+        </Upload>
+        <div className='flex justify-center md:text-start text-center flex-col space-y-2'>
+          <h1 className='md:text-4xl text-3xl font-bold'>Profile</h1>
+          <p className='md:text-lg text-base text-gray-600'>Update your photo and personal details</p>
         </div>
-      </Upload>
-      <div className='w-full max-w-md mt-8'>
-        <DropdownMenu label='Personal Information' onSave={() => console.log('Information saved.')} />
       </div>
-      <div className='w-full max-w-md mt-8'>
-        <DropdownMenu label='About Me' onSave={() => console.log('Information saved.')} />
-      </div>
+      <Collapse expandIconPosition='right' bordered={false} className='w-full mt-8 flex-col space-y-10 bg-white' accordion>
+        <Panel className='md:p-6 p-4 shadow-lg rounded-lg text-lg font-semibold' header='Personal Information' key='1'>
+          <PersonalInfoForm />
+        </Panel>
+        <Panel className='md:p-6 p-4 shadow-lg rounded-lg  text-lg font-semibold' header='About Me' key='2'>
+          <PersonalInfoForm />
+        </Panel>
+        <Panel className='md:p-6 p-4 shadow-lg rounded-lg text-lg font-semibold' header='Work/Education' key='3'>
+          <PersonalInfoForm />
+        </Panel>
+        <Panel className='md:p-6 p-4 shadow-lg rounded-lg text-lg font-semibold' header='Skills' key='4'>
+          <PersonalInfoForm />
+        </Panel>
+        <Panel className='md:p-6 p-4 shadow-lg rounded-lg text-lg font-semibold' header='Social Media' key='5'>
+          <PersonalInfoForm />
+        </Panel>
+      </Collapse>
     </div>
   );
 };
