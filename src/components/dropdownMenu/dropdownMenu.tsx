@@ -39,7 +39,7 @@ const DropdownMenu: React.FC<Props> = ({ label = 'Personal Information', placeho
               <InputField placeholder={placeholder || 'Enter your phone number'} defaultValue={defaultValue} />
             </Form.Item>
             <Form.Item label='Gender'>
-              <Select>
+              <Select className='border-none'>
                 <Select.Option value='male'>Male</Select.Option>
                 <Select.Option value='female'>Female</Select.Option>
                 <Select.Option value='other'>Other</Select.Option>

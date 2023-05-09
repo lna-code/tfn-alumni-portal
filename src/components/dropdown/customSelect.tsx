@@ -17,7 +17,7 @@ const CustomSelect: React.FC<Props> = ({ options, placeholder, value, className,
   };
 
   return (
-    <Select placeholder={placeholder} value={value} rootClassName='' onChange={handleOnChange} className={`h-12 w-80 shadow-lg px-3 border-white hover:border-tfn-green focus:border-tfn-green ${className || ''}`}>
+    <Select placeholder={placeholder} value={value} rootClassName='' onChange={handleOnChange} className={`h-12 w-80 shadow-lg border-white hover:border-tfn-green focus:border-tfn-green rounded-lg pt-2 pb-2 ${className || ''}`}>
       {options.map((option) => (
         <Select.Option key={option.value} value={option.value}>
           {option.label}
