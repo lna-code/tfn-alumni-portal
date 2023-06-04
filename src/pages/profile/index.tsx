@@ -4,6 +4,10 @@ import { UserOutlined } from '@ant-design/icons';
 import profilePin from '../../assets/imgs/profilePin.png';
 import PersonalInfoForm from '@/components/profiles/PersonalInfoForm';
 import Image from 'next/image';
+import AboutMeForm from '@/components/profiles/AboutMeForm';
+import WorkEducationform from '@/components/profiles/WorkEducationform';
+import SkillsForm from '@/components/profiles/SkillsForm';
+import SocialMediaForm from '@/components/profiles/SocialMediaForm';
 import { useAppDispatch, useAppSelector } from '@/store/store';
 import { selectCommonListState } from '@/store/commonList/commonListSlice';
 import { getListAction } from '@/store/commonList/commonListAction';
@@ -42,16 +46,16 @@ const ProfilePage: React.FC = () => {
           <PersonalInfoForm />
         </Panel>
         <Panel className='md:p-6 p-4 shadow-lg rounded-lg  text-lg font-semibold' header='About Me' key='2'>
-          <PersonalInfoForm />
+          <AboutMeForm />
         </Panel>
         <Panel className='md:p-6 p-4 shadow-lg rounded-lg text-lg font-semibold' header='Work/Education' key='3'>
-          <PersonalInfoForm />
+          <WorkEducationform />
         </Panel>
         <Panel className='md:p-6 p-4 shadow-lg rounded-lg text-lg font-semibold' header='Skills' key='4'>
-          <PersonalInfoForm />
+          <SkillsForm />
         </Panel>
         <Panel className='md:p-6 p-4 shadow-lg rounded-lg text-lg font-semibold' header='Social Media' key='5'>
-          <PersonalInfoForm />
+          <SocialMediaForm />
         </Panel>
       </Collapse>
     </div>
