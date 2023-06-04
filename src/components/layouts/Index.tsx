@@ -5,7 +5,7 @@ import { PageEndpoints } from '@/utils/constants/endpoints.constant';
 import AuthLayout from './AuthLayout/AuthLayout';
 import Dashboard from './Dashboard/Dashboard';
 import { useAppDispatch, useAppSelector } from '@/store/store';
-import { selectConfigState, setAppLoading } from '@/store/config/configSlice';
+import { setAppLoading } from '@/store/config/configSlice';
 import { selectAuthState } from '@/store/auth/authSlice';
 
 interface IndexProps {
@@ -15,18 +15,14 @@ interface IndexProps {
 const Index = ({ children }: IndexProps) => {
   const router = useRouter();
   const { pathname } = router;
-  const { appLoading } = useAppSelector(selectConfigState);
-  const { token } = useAppSelector(selectAuthState);
-
   const dispatch = useAppDispatch();
+  const { isLoggedIn } = useAppSelector(selectAuthState);
 
   useEffect(() => {
-    dispatch(setAppLoading(false));
+    dispatch(setAppLoading({ state: false, text: '' }));
   }, []);
 
-  if (appLoading) return <div>Loading... </div>;
-
-  if (!token) {
+  if (!isLoggedIn) {
     switch (pathname) {
       case PageEndpoints.login:
       case PageEndpoints.forgotPassword:
@@ -38,10 +34,16 @@ const Index = ({ children }: IndexProps) => {
         return null;
     }
   } else {
-    return <Dashboard>{children}</Dashboard>;
-    // switch (pathname) {
-    //   default:
-    // }
+    switch (pathname) {
+      case PageEndpoints.login:
+      case PageEndpoints.forgotPassword:
+      case PageEndpoints.resetPassword:
+      case PageEndpoints.newPassword:
+        router.push(PageEndpoints.home);
+        return null;
+      default:
+        return <Dashboard>{children}</Dashboard>;
+    }
   }
 };
 

@@ -5,16 +5,17 @@ import React from 'react';
 
 const Index = () => {
   const dispatch = useAppDispatch();
-  const { user } = useAppSelector(selectAuthState);
+  const { token } = useAppSelector(selectAuthState);
+
+  console.log(token);
 
   const logOutUserHandler = () => {
     dispatch(logoutUser());
   };
   return (
     <div className=' flex justify-center items-center flex-col'>
-      <h1 className='text-4xl text-tfn-green'>Profile Page</h1>
-      <p>User: {user?.name}</p>
-      <p>Role: {user?.role}</p>
+      <h1 className='text-4xl text-tfn-green'>Index Page</h1>
+      <h1>Welcome </h1>
       <Button onClick={logOutUserHandler}>Log Out User</Button>
     </div>
   );

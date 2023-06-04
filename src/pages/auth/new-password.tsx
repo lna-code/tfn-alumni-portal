@@ -71,7 +71,6 @@ const SetPassword = () => {
           <p className='float-right'>{strengthText}</p>
         </div>
       </form>
-
       <div className='my-6'>
         <div className='flex flex-col gap-y-3'>
           <label htmlFor='password' className='text-[#989797]'>

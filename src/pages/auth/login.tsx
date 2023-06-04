@@ -1,24 +1,22 @@
 /* eslint-disable prettier/prettier */
 import React, { ChangeEvent } from 'react';
 import Button from '@/components/Button/button';
-import { loginUser } from '@/store/auth/authSlice';
 import { useAppDispatch } from '@/store/store';
-import { PageEndpoints } from '@/utils/constants/endpoints.constant';
-import { useRouter } from 'next/router';
 import { FormDefaultObjecType, useFormValidator } from '@/utils/hooks/FormValidationHook';
 import { validationCases } from '@/utils/constants/regrexCases.constant';
 import InputField from '@/components/forms/Input/InputField';
 import Link from 'next/link';
+import { loginUserRequest } from '@/store/auth/AuthActions';
+import { PageEndpoints } from '@/utils/constants/endpoints.constant';
 
 const Login = () => {
   const dispatch = useAppDispatch();
-  const router = useRouter();
 
   const { validEmail } = validationCases;
 
   const defaultFormObject: FormDefaultObjecType = {
-    email: { value: '', required: true, patterns: [validEmail] },
-    password: { value: '', required: true }
+    email: { value: 'wapemma@yahoo.com', required: true, patterns: [validEmail] },
+    password: { value: 'king1234@', required: true }
   };
 
   const { formData, formErrors, handleFieldChange, validateForm } = useFormValidator(defaultFormObject);
@@ -30,19 +28,19 @@ const Login = () => {
 
   const loginUserHandler = () => {
     if (!validateForm()) return;
-    dispatch(loginUser({ email: formData?.email, password: formData?.password }));
-    router.replace(PageEndpoints.home);
+    const { email, password } = formData;
+    dispatch(loginUserRequest({ email, password }));
   };
 
   return (
-    <form onSubmit={loginUserHandler}>
+    <form onSubmit={loginUserHandler} className='md:w-fit w-full p-4'>
       <h1 className='text-tfn-green text-2xl font-bold text-center'>Sign in to Dashboard </h1>
       <div className='my-6'>
         <div className='flex flex-col gap-y-3'>
           <label htmlFor='email' className='text-[#989797]'>
             Email
           </label>
-          <InputField name='email' placeholder='Enter Email' onChange={handleInputChange} />
+          <InputField value={formData?.email} name='email' placeholder='Enter Email' onChange={handleInputChange} />
         </div>
         <p className='text-red-400 text-sm italic'>{formErrors?.email && formErrors?.email}</p>
       </div>
@@ -51,7 +49,7 @@ const Login = () => {
           <label htmlFor='password' className='text-[#989797]'>
             Password
           </label>
-          <InputField name='password' placeholder='Enter Password' onChange={handleInputChange} />
+          <InputField type='password' value={formData?.password} name='password' placeholder='Enter Password' onChange={handleInputChange} />
         </div>
         <p className='text-red-400 text-sm italic'>{formErrors?.password && formErrors?.password}</p>
       </div>
@@ -62,7 +60,7 @@ const Login = () => {
             Remember me
           </label>
         </div>
-        <Link href='./forgot-password' className='text-tfn-green'>
+        <Link href={PageEndpoints.forgotPassword} className='text-tfn-green'>
           Reset Password!
         </Link>
       </div>

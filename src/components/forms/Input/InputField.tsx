@@ -8,7 +8,7 @@ interface InputFieldProps {
 }
 
 const InputField = ({ placeholder, className, ...others }: InputFieldProps) => {
-  return <Input className={`h-12 w-80 shadow-lg px-3 border-white hover:border-tfn-green focus:border-tfn-green ${className || ''} `} placeholder={placeholder} {...others} />;
+  return <Input className={`h-12 md:w-80 w-full shadow-lg px-3 border-white hover:border-tfn-green focus:outline-tfn-light-green ${className || ''} `} placeholder={placeholder} {...others} />;
 };
 
 export default InputField;

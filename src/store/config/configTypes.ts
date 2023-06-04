@@ -1,5 +1,8 @@
 export interface configStateType {
-  appLoading: boolean;
+  appLoading: {
+    state: boolean;
+    text?: string;
+  };
   mobiNav: boolean;
   leftBar: boolean;
 }

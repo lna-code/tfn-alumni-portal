@@ -9,7 +9,7 @@ const AboutMeForm = () => {
         <div className='md:col-span-6 col-span-12'>
           <div className='flex flex-col gap-y-3'>
             <div>
-              <label>Your bio</label>
+              <p>Your bio</p>
               <p className='font-normal text-sm'>Write a short introduction</p>
             </div>
             <div>

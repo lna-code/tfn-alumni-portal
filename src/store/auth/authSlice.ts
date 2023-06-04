@@ -1,45 +1,58 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
-import { AuthStateObject, loginUserPayload } from './authType';
+import { AuthStateObject, ChangePasswordPageEnum } from './authType';
+import { ApiFailurePayload } from '../generalType';
+import { pushNotification } from '@/utils/helpers/pushNotification';
 
 const authDefaultState: AuthStateObject = {
   isLoggedIn: false,
+  isLoading: false,
   token: '',
+  message: '',
+  error: '',
   user: {
+    id: '',
     email: '',
-    name: '',
-    role: ''
-  }
+    role: '',
+    username: ''
+  },
+  changePasswordPage: ChangePasswordPageEnum.forget
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState: authDefaultState,
   reducers: {
-    loginUser: (state, action: PayloadAction<loginUserPayload>) => {
-      const { email } = action.payload;
-      state.isLoggedIn = true;
-      state.token = 'jcndsfkngdfsjgieorwjga98et9r2348ut98efhvds98E2349TR8GE';
-      state.user = {
-        email,
-        name: email,
-        role: 'user'
-      };
+    loginUserSuccess: (state, { payload }: PayloadAction<{ token: string; message: string; user?: any }>) => {
+      const { message, token, user } = payload;
+      pushNotification({ type: 'success', message });
+      return { ...state, isLoggedIn: true, message, token, user: user };
+    },
+    loginUserFailure: (state, { payload }: PayloadAction<ApiFailurePayload>) => {
+      const { error } = payload;
+      return { ...state, isLoggedIn: false, token: '', error };
+    },
+    setChangePasswordPage: (state, { payload }: PayloadAction<ChangePasswordPageEnum>) => {
+      if (payload === ChangePasswordPageEnum.login) {
+        setTimeout(() => {
+          window.location.assign('/auth/login');
+        }, 4000);
+        return { ...state, isLoggedIn: false, token: '', changePasswordPage: ChangePasswordPageEnum.forget };
+      }
+      return { ...state, isLoggedIn: false, token: '', changePasswordPage: payload };
+    },
+    forgotPasswordSuccess: (state, { payload }: PayloadAction<string>) => {
+      return { ...state, isLoggedIn: false, token: '', user: { ...state.user, id: payload } };
     },
     logoutUser: (state) => {
-      state.isLoggedIn = false;
-      state.token = '';
-      state.user = {
-        email: '',
-        name: '',
-        role: ''
-      };
+      state = authDefaultState;
+      return state;
     }
   }
 });
 
-export const { loginUser, logoutUser } = authSlice.actions;
+export const { loginUserFailure, loginUserSuccess, logoutUser, setChangePasswordPage, forgotPasswordSuccess } = authSlice.actions;
 
 export const selectAuthState = (state: RootState) => state.auth;
 

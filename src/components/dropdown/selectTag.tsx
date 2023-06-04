@@ -1,6 +1,5 @@
 import { Select, Space, SelectProps } from 'antd';
-import { SizeType } from 'antd/es/config-provider/SizeContext';
-import React, { useState } from 'react';
+import React from 'react';
 
 const options: SelectProps['options'] = [];
 
