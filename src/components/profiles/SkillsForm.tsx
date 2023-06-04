@@ -7,7 +7,7 @@ const SkillsForm = () => {
     <div>
       <form className='w-full text-base '>
         <div className='w-full'>
-          <p>Add Skills</p>
+          <p>Add Skills </p>
           <SelectTag />
         </div>
         <div className='col-span-12 flex justify-end pt-8'>
