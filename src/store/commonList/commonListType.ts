@@ -1,4 +1,4 @@
-import { ApiFailurePayload, ApiRequestPayload,ListStateProps, SingleRecordProps } from '../generalType';
+import { ApiFailurePayload, ApiRequestPayload, ListStateProps, SingleRecordProps } from '../generalType';
 
 export interface CommonlistStateProps {
   currentProfile: SingleRecordProps;
