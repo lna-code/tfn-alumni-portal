@@ -40,6 +40,7 @@
   "devDependencies": {
     "@types/antd": "^1.0.0",
     "@types/styled-components": "^5.1.26",
+    "@types/uuid": "^9.0.1",
     "@types/zxcvbn": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "autoprefixer": "^10.4.14",
