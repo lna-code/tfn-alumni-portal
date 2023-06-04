@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Upload, Avatar, Collapse } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import profilePin from '../../assets/imgs/profilePin.png';
 import PersonalInfoForm from '@/components/profiles/PersonalInfoForm';
 import Image from 'next/image';
+import { useAppDispatch, useAppSelector } from '@/store/store';
+import { selectCommonListState } from '@/store/commonList/commonListSlice';
+import { getListAction } from '@/store/commonList/commonListAction';
 const { Panel } = Collapse;
 
 const ProfilePage: React.FC = () => {
   const [imageUrl, setImageUrl] = useState('');
+  const dispatch = useAppDispatch();
+  const { currentProfile } = useAppSelector(selectCommonListState);
 
+  console.log(currentProfile);
   const handleImageUpload = () => {
     setImageUrl('https://www.sbs.ox.ac.uk/sites/default/files/Leye.PNG');
   };
+
+  useEffect(() => {
+    dispatch(getListAction({ query: 'auth', list: 'currentProfile' }));
+  }, []);
 
   return (
     <div className='flex flex-col items-start justify-center xl:px-16 lg:px-4 md:px-5 px-2 pb-36'>
@@ -27,7 +37,7 @@ const ProfilePage: React.FC = () => {
           <p className='md:text-lg text-base text-gray-600'>Update your photo and personal details</p>
         </div>
       </div>
-      <Collapse expandIconPosition='right' bordered={false} className='w-full mt-8 flex-col space-y-10 bg-white' accordion>
+      <Collapse expandIconPosition='end' bordered={false} className='w-full mt-8 flex-col space-y-10 bg-white' accordion>
         <Panel className='md:p-6 p-4 shadow-lg rounded-lg text-lg font-semibold' header='Personal Information' key='1'>
           <PersonalInfoForm />
         </Panel>

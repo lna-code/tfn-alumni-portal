@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { faHome, faUsers, faSitemap, faBriefcase, faCalendar, IconDefinition, faUser } from '@fortawesome/free-solid-svg-icons';
 
+export const BaseApiUrl = process.env.NEXT_PUBLIC_BASEAPI_URL || '';
+
 export enum PageEndpoints {
   home = '/',
   login = '/auth/login',

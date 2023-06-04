@@ -21,6 +21,7 @@
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "antd": "^5.3.1",
+    "axios": "^1.4.0",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "eslint-plugin-react": "^7.32.2",
@@ -33,9 +34,11 @@
     "react-redux": "^8.0.5",
     "redux-persist": "^6.0.0",
     "typescript": "5.0.2",
+    "uuid": "^9.0.0",
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
+    "@types/uuid": "^9.0.1",
     "@types/zxcvbn": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "autoprefixer": "^10.4.14",
