@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import React from 'react';
-
 interface TfnLogoProps {
   className?: string;
 }
@@ -8,9 +8,7 @@ interface TfnLogoProps {
 const TfnLogo = ({ className = '' }: TfnLogoProps) => {
   return (
     <Link passHref href={'/'}>
-      <span className={`relative font-bold md:text-[1.7rem] text-[1.2rem] text-start w-full text-tfn-green select-none cursor-pointer ${className}`}>
-        TEACH<span className='text-tfn-light-green'>FOR</span>NIGERIA
-      </span>
+      <img src={'/logo.png'} alt='Teach For Nigeria' className={`relative w-full select-none cursor-pointer ${className}`} />
     </Link>
   );
 };
